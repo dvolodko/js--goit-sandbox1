@@ -1,23 +1,14 @@
-function getSubscriptionPrice(type) {
-	let price;
+function filterArray(numbers, value) {
 	// Change code below this line
-
-	switch (
-		type // Change this line
-	) {
-		case type === 'starter': // Change this line
-			price = 0; // Change this line
-			break;
-
-		case type === 'professional': // Change this line
-			price = 20; // Change this line
-			break;
-
-		case type === 'organization': // Change this line
-			price = 50; // Change this line
-			break;
+	let moreThan = [];
+	for (i = 0; i < numbers.length; i += 1) {
+		if (numbers[i] > value) {
+			moreThan = moreThan.push(numbers[i]);
+		}
 	}
+	return moreThan;
 
 	// Change code above this line
-	return price;
 }
+
+filterArray([1, 2, 3, 4, 5], 3);
