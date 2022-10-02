@@ -1,8 +1,23 @@
-const target = 3;
-let sum = 0;
+function getSubscriptionPrice(type) {
+	let price;
+	// Change code below this line
 
-for (let i = 0; i <= target; i += 1) {
-	sum += i;
+	switch (
+		type // Change this line
+	) {
+		case type === 'starter': // Change this line
+			price = 0; // Change this line
+			break;
+
+		case type === 'professional': // Change this line
+			price = 20; // Change this line
+			break;
+
+		case type === 'organization': // Change this line
+			price = 50; // Change this line
+			break;
+	}
+
+	// Change code above this line
+	return price;
 }
-
-console.log(sum);
