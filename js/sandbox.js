@@ -1,73 +1,31 @@
-const users = [
-	{
-		name: 'Moore Hensley',
-		email: 'moorehensley@indexia.com',
-		eyeColor: 'blue',
-		friends: ['Sharron Pace'],
-		isActive: false,
-		balance: 2811,
-		gender: 'male',
-	},
-	{
-		name: 'Sharlene Bush',
-		email: 'sharlenebush@tubesys.com',
-		eyeColor: 'blue',
-		friends: ['Briana Decker', 'Sharron Pace'],
-		isActive: true,
-		balance: 3821,
-		gender: 'female',
-	},
-	{
-		name: 'Ross Vazquez',
-		email: 'rossvazquez@xinware.com',
-		eyeColor: 'green',
-		friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
-		isActive: false,
-		balance: 3793,
-		gender: 'male',
-	},
-	{
-		name: 'Elma Head',
-		email: 'elmahead@omatom.com',
-		eyeColor: 'green',
-		friends: ['Goldie Gentry', 'Aisha Tran'],
-		isActive: true,
-		balance: 2278,
-		gender: 'female',
-	},
-	{
-		name: 'Carey Barr',
-		email: 'careybarr@nurali.com',
-		eyeColor: 'blue',
-		friends: ['Jordan Sampson', 'Eddie Strong', 'Adrian Cross'],
-		isActive: true,
-		balance: 3951,
-		gender: 'male',
-	},
-	{
-		name: 'Blackburn Dotson',
-		email: 'blackburndotson@furnigeer.com',
-		eyeColor: 'brown',
-		friends: ['Jacklyn Lucas', 'Linda Chapman', 'Adrian Cross', 'Solomon Fokes'],
-		isActive: false,
-		balance: 1498,
-		gender: 'male',
-	},
-	{
-		name: 'Sheree Anthony',
-		email: 'shereeanthony@kog.com',
-		eyeColor: 'brown',
-		friends: ['Goldie Gentry', 'Briana Decker'],
-		isActive: true,
-		balance: 2764,
-		gender: 'female',
-	},
-];
+//Напиши функцию конструктор User для создания пользователя со следующими свойствами
+//a. userName - имя, строка
+//b. age - возраст, число
+//c. numbersOfPost - количество постов, число
+//d. класс ожидает 1 параметр - объект настроек с одноименными свойствами
 
-// Change code below this line
-const getTotalBalanceByGender = (users, gender) => {
-	return [...users].filter(user => user.gender === gender).reduce((total, user) => total + user.balance, 0);
+//Добавь метод getInfo(), который возвращает строку:
+//`Пользователю ${} ${} лет и у него ${} публикаций.`
+
+const User = function (userObj) {
+	const { userName, age, numberOfPost } = userObj;
+	this.userName = userName;
+	this.age = age;
+	this.numberOfPost = numberOfPost;
+	// this.getInfo = function () {
+	// 	console.log(`Користувачу ${userName} ${age} років і він має ${numberOfPost} постів.`);
+	// };
 };
-// Change code above this line
 
-console.log(getTotalBalanceByGender(users, 'male'));
+User.prototype.getInfo = function () {
+	console.log(`Користувачу ${this.userName} ${this.age} років і він має ${this.numberOfPost} постів.`);
+};
+
+const poly = new User({
+	userName: 'Poly',
+	age: 33,
+	numberOfPost: 567,
+});
+
+console.log(poly);
+poly.getInfo();
