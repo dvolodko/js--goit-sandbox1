@@ -1,8 +1,15 @@
-function isTriangle(a, b, c) {
-	const sum = (...args) => args.reduce((a, b) => a + b);
-	if (sum(a, b, c) / Math.max(a, b, c) > 2) {
-		return true;
-	} else {
-		return false;
-	}
+// complete the function
+function solution(string) {
+	let array = [];
+	const result = string.split('');
+	result.map(letter => {
+		if (/[A-Z]/.test(letter)) {
+			array.push(' ' + letter);
+		} else {
+			array.push(letter);
+		}
+	});
+	return array.join('');
 }
+
+console.log(solution('camelCasing'));
