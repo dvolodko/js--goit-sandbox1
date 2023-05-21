@@ -1,15 +1,12 @@
-// complete the function
-function solution(string) {
-	let array = [];
-	const result = string.split('');
-	result.map(letter => {
-		if (/[A-Z]/.test(letter)) {
-			array.push(' ' + letter);
-		} else {
-			array.push(letter);
-		}
+String.prototype.toJadenCase = function () {
+	const arrayOfWords = this.split(' ');
+	const newArray = [];
+	arrayOfWords.map(word => {
+		const newWord = word.replace(word[0], word[0].toUpperCase());
+		newArray.push(newWord);
 	});
-	return array.join('');
-}
+	return newArray.join(' ');
+};
 
-console.log(solution('camelCasing'));
+const str = "How can mirrors be real if our eyes aren't real";
+console.log(str.toJadenCase());
