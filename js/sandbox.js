@@ -1,39 +1,62 @@
-function solution(list) {
-	const newArray = [];
-	const tempArray = [list[0]];
-	for (let i = 1; i < list.length; i++) {
-		const element = list[i];
-		const prevElement = list[i - 1];
-		if (element - prevElement === 1) {
-			tempArray.push(element);
-			console.log(`if iteration ${i}, element: ${element}`);
-		} else if (tempArray.length > 2) {
-			const lastIndex = tempArray.length - 1;
-			newArray.push(`${tempArray[0]}-${tempArray[lastIndex]}`);
-			tempArray.length = 0;
-			tempArray.push(element);
-			console.log(`else if iteration ${i}, element: ${element}`);
-		} else {
-			newArray.push(...tempArray);
-			tempArray.length = 0;
-			tempArray.push(element);
-			console.log(`else iteration ${i}, element: ${element}`);
-		}
-	}
-	if (newArray.length === 0) {
-		const lastIndex = tempArray.length - 1;
-		newArray.push(`${tempArray[0]}-${tempArray[lastIndex]}`);
-	}
-	if (tempArray.length < 3) {
-		newArray.push(...tempArray);
-	} else if (tempArray.length !== 0) {
-		const lastIndex = tempArray.length - 1;
-		newArray.push(`${tempArray[0]}-${tempArray[lastIndex]}`);
-	}
+function rot13(str) {
+	const capitalLettersArray = [
+		'A',
+		'B',
+		'C',
+		'D',
+		'E',
+		'F',
+		'G',
+		'H',
+		'I',
+		'J',
+		'K',
+		'L',
+		'M',
+		'N',
+		'O',
+		'P',
+		'Q',
+		'R',
+		'S',
+		'T',
+		'U',
+		'V',
+		'W',
+		'X',
+		'Y',
+		'Z',
+	];
+	const lettersArray = [
+		'a',
+		'b',
+		'c',
+		'd',
+		'e',
+		'f',
+		'g',
+		'h',
+		'i',
+		'j',
+		'k',
+		'l',
+		'm',
+		'n',
+		'o',
+		'p',
+		'q',
+		'r',
+		's',
+		't',
+		'u',
+		'v',
+		'w',
+		'x',
+		'y',
+		'z',
+	];
 
-	return newArray.join(',');
+	console.log(capitalLettersArray[12]);
 }
 
-const array = [-3, -2, -1, 0, 1, 3];
-const array1 = [-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20];
-console.log(solution(array1));
+console.log(rot13('"EBG13 rknzcyr."'));
